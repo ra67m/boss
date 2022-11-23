@@ -91,6 +91,22 @@ def home(request):
         'jobs':jobs,
         'current_page':current_page
     })
+def jianli(request):
+    if request.method == 'GET':
+        return render(request, 'jianli.html')
+    else:
+        educational = request.POST.get('educational')
+        workExpirence = request.POST.get('workExpirence')
+        address = request.POST.get('address')
+        work = request.POST.get('work')
+
+
+    uname = request.session.get('username')
+    userInfo = User.objects.get(username=uname)
+    user = User.objects.get(username=uname)
+    if request.session['username'] == user.username :
+        User.objects.create(educational=educational, workExpirence=workExpirence, address=address, work=work)
+    return render(request,'jianli.html',{'userInfo':userInfo})
 def center(request):
     return render(request,'center.html')
 
