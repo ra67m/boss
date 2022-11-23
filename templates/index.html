@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Neon Admin Panel">
+	<meta name="author" content="">
+	
+	<title>首页</title>
+	
+
+	<link rel="stylesheet" href="/static/css/jquery-ui-1.10.3.custom.min.css">
+	<link rel="stylesheet" href="/static/css/entypo.css">
+	<link rel="stylesheet" href="/static/css/css.css">
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/neon-core.css">
+	<link rel="stylesheet" href="/static/css/neon-theme.css">
+	<link rel="stylesheet" href="/static/css/neon-forms.css">
+	<link rel="stylesheet" href="/static/css/custom.css">
+
+	<script src="/static/js/jquery-1.11.0.min.js"></script>
+
+	<!--[if lt IE 9]><script src="/assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+
+	<!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+	<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+	<![endif]-->
+	
+	
+</head>
+<body class="page-body  page-left-in" data-url="http://neon.dev">
+
+<div class="page-container"><!-- add class "sidebar-collapsed" to close sidebar by default, "chat-visible" to make chat appear always -->	
+	
+	<div class="sidebar-menu">
+		
+			
+		<header class="logo-env">
+            <div class="logo">
+				<a href="index.html">
+					<h3 style="color: #FFFFFF;font-weight: bold;margin-top: 5px">BOSS直聘</h3>
+				</a>
+			</div>
+
+			
+		</header>
+				
+		
+		
+				<div class="sidebar-user-info">
+			
+			<div class="sui-normal">
+				<a href="#" class="user-link">
+					<img style="width: 95%;border-radius: 50%" src="/media/{{ userInfo.avatar }}" width="120" alt="" class="img-circle">
+					
+					<span style="text-align: center;padding-top: 200px">欢迎回来,</span>
+					<strong style="text-align: center;margin-top: 5px">{{ userInfo.username }}</strong>
+				</a>
+			</div>
+			
+
+		</div>
+					
+				
+		
+				
+		<ul id="main-menu" class="">
+			<!-- add class "multiple-expanded" to allow multiple submenus to open -->
+			<!-- class "auto-inherit-active-class" will automatically add "active" class for parent elements who are marked already with class "active" -->
+			<!-- Search Bar -->
+			<li id="search">
+				<form method="get" action="">
+					<input type="text" name="q" class="search-input" placeholder="Search something...">
+					<button type="submit">
+						<i class="entypo-search"></i>
+					</button>
+				</form>
+			</li>
+			<li class="opened active">
+				<a href="/myApp/home/">
+					<i class="entypo-gauge"></i>
+					<span>首页</span>
+				</a>
+
+			</li>
+			<li class="opened active">
+				<a href="center.html">
+					<i class="entypo-layout"></i>
+					<span>个人中心</span>
+				</a>
+
+			</li>
+			<li>
+				<a href="index.html" target="_blank">
+					<i class="entypo-monitor"></i>
+					<span>数据统计</span>
+				</a>
+			</li>
+			<li>
+				<a href="index.html">
+					<i class="entypo-newspaper"></i>
+					<span>可视化图表</span>
+				</a>
+
+			</li>
+
+
+		</ul>
+
+	</div>	
+	<div class="main-content">
+		
+<div class="row" style="display: flex">
+	
+
+	<div style="margin-left: auto" class="col-md-6 col-sm-4 clearfix hidden-xs">
+		
+		<ul class="list-inline links-list pull-right">
+            <li class="sep"></li>
+			
+			<li>
+				<a href="/myApp/logOut">
+					退出登录 <i class="entypo-logout right"></i>
+				</a>
+			</li>
+		</ul>
+		
+	</div>
+	
+</div>
+
+<hr>
+
+
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="well">
+			<h1>{{ dateInfo.month }}, {{ dateInfo.day }}, {{ dateInfo.year }}</h1>
+			<h3>Welcome to the site <strong>{{ userInfo.username }}</strong></h3>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+
+	<div class="col-sm-9">
+
+		<div class="row">
+		
+			<div class="col-sm-6">
+			
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="panel-title">用户创建时间饼状图</div>
+						
+						<div class="panel-options">
+							<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+							<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+
+						</div>
+					</div>
+					<div class="panel-body">
+						<div id="main" style="width: 100%;height: 300px">
+
+                        </div>
+					</div>	
+				</div>
+				
+			</div>
+		
+			<div class="col-sm-6">
+			
+				<div class="panel panel-default">
+					<div class="panel-heading">
+						<div class="panel-title">最新用户信息</div>
+						
+						<div class="panel-options">
+							<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+							<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+							<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+							<a href="#" data-rel="close"><i class="entypo-cancel"></i></a>
+						</div>
+					</div>
+					<table class="table table-bordered table-responsive">
+						<thead>
+							<tr>
+								<th>#</th>
+								<th>用户名</th>
+								<th>密码</th>
+								<th>创建时间</th>
+                                <th>用户头像</th>
+							</tr>
+						</thead>
+						
+						<tbody>
+                        {% for u in top6Users %}
+                            <tr>
+                                <td>{{ forloop.counter }}</td>
+                                <td>{{ u.username }}</td>
+                                <td>{{ u.password }}</td>
+                                <td class="text-center">
+                                    {{ u.createTime }}
+                                </td>
+                                <td class="text-center">
+                                    <img class="img-circle" src="/media/{{ u.avatar }}" width="32">
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+
+                        </tbody>
+					</table>
+				</div>
+				
+			</div>
+			
+		</div>
+		
+		
+		<div class="panel panel-default">
+			<div class="panel-heading">
+				<div class="panel-title">
+					<h4>
+						数据柱状图
+
+					</h4>
+				</div>
+				
+				<div class="panel-options">
+					<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-1" class="bg"><i class="entypo-cog"></i></a>
+					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+					<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+
+				</div>
+			</div>
+		
+			<div class="panel-body no-padding">
+				<div id="rickshaw-chart-demo-2">
+					<div id="mainTwo" style="width: 100%;height: 450px"></div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+	
+    <div class="col-sm-3">
+        <div class="tile-stats tile-red">
+			<div class="icon"><i class="entypo-chart-bar"></i></div>
+			<div class="num" data-start="0" data-end="{{ tagDic.jobsLen }}" data-postfix="" data-duration="1500" data-delay="0">{{ tagDic.jobsLen }}</div>
+
+			<h3>数据总量统计</h3>
+        </div>
+    </div>
+    	<div class="col-sm-3">
+            <div class="tile-stats tile-green">
+                <div class="icon"><i class="entypo-users"></i></div>
+                <div class="num" data-start="0" data-end="{{ tagDic.usersLen }}" data-postfix="" data-duration="1500" data-delay="0">{{ tagDic.usersLen }}</div>
+
+                <h3>用户数量统计</h3>
+            </div>
+        </div>
+    	<div class="col-sm-3">
+        <div class="tile-stats tile-orange">
+			<div class="icon"><i class="entypo-users"></i></div>
+			<div class="num" style="font-size: 24px" data-start="0" data-end="{{ tagDic.educationsTop }}" data-postfix="" data-duration="1500" data-delay="0">{{ tagDic.educationsTop }}</div>
+
+			<h3>行业最高学历</h3>
+
+		</div>
+    </div>
+    	<div class="col-sm-3">
+        <div class="tile-stats tile-aqua">
+			<div class="icon"><i class="entypo-users"></i></div>
+			<div class="num" data-start="0" data-end="{{ tagDic.salaryTop }}" data-postfix="" data-duration="1500" data-delay="0">{{ tagDic.salaryTop }}</div>
+
+			<h3>行业最高薪资</h3>
+
+		</div>
+    </div>
+    	<div class="col-sm-3">
+        <div class="tile-stats tile-blue">
+			<div class="icon"><i class="entypo-users"></i></div>
+			<div class="num" style="font-size: 24px" data-start="0" data-end="{{ tagDic.addressTop }}" data-postfix="" data-duration="1500" data-delay="0">{{ tagDic.addressTop }}</div>
+
+			<h3>优势城市</h3>
+
+		</div>
+    </div>
+    	<div class="col-sm-3">
+            <div class="tile-stats tile-purple">
+                <div class="icon"><i class="entypo-users"></i></div>
+                <div class="num" data-start="0" data-end="{{ tagDic.salaryMonthTop }}" data-postfix="" data-duration="1500" data-delay="0">{{ tagDic.salaryMonthTop }}</div>
+
+                <h3>最高年底多薪</h3>
+
+            </div>
+        </div>
+    	<div class="col-sm-3">
+            <div class="tile-stats tile-pink">
+                <div class="icon"><i class="entypo-users"></i></div>
+                <div class="num" style="font-size: 24px" data-postfix="" data-duration="1500" data-delay="0">
+                    {% if not tagDic.practiceMax %}
+                    正常岗位
+                    {% else %}
+                    实习岗位
+                    {% endif %}
+                </div>
+
+                <h3>岗位性质</h3>
+            </div>
+	
+        </div>
+</div>
+
+
+<div class="row">
+	<div class="col-sm-12">
+		<div class="panel panel-default" data-collapsed="0"><!-- to apply shadow add class "panel-shadow" -->
+			<!-- panel head -->
+			<div class="panel-heading">
+				<div class="panel-title">数据表格</div>
+				
+				<div class="panel-options">
+					<a href="#sample-modal" data-toggle="modal" data-target="#sample-modal-dialog-3" class="bg"><i class="entypo-cog"></i></a>
+					<a href="#" data-rel="collapse"><i class="entypo-down-open"></i></a>
+					<a href="#" data-rel="reload"><i class="entypo-arrows-ccw"></i></a>
+					
+				</div>
+			</div>
+			
+
+
+	<table class="table table-bordered table-responsive">
+		<thead>
+			<tr>
+				<th>编号</th>
+				<th>工作地点</th>
+                <th>职位类型</th>
+                <th>学历要求</th>
+                <th>工作经验</th>
+                <th>工作标签</th>
+                <th>最高薪水</th>
+                <th>年底多薪</th>
+                <th>是否实习</th>
+                <th>公司名称</th>
+                <th>融资阶段</th>
+                <th>公司人数</th>
+                <th>跳转</th>
+			</tr>
+		</thead>
+		
+		<tbody>
+        {% for i in jobs %}
+			<tr>
+                <td>{{ forloop.counter }}</td>
+                <td>{{ i.address }}</td>
+                <td>{{ i.type }}</td>
+                <td>{{ i.educational }}</td>
+                <td>{{ i.workExperience }}</td>
+                <td>{{ i.workTag }}</td>
+                <td>{{ i.salary }}</td>
+                <td>{{ i.salaryMouth }}</td>
+                <td>{{ i.practice }}</td>
+                <td>{{ i.companyTitle }}</td>
+                <td>{{ i.companyStatus }}</td>
+                <td>{{ i.companyPeople }}</td>
+
+			</tr>
+
+
+        {% endfor %}
+		</tbody>
+	</table>
+    <div class="container">
+        <ul class="pagination" id="pager">
+            {# 上一页链接 #}
+            {% if jobs.has_previous %}
+            <li class="previous" style="display: inline"><a href="/myApp/home/page={{ jobs.previous_page_number }}">上一页</a></li>
+
+            {% endif %}
+
+            {# 中间数字显示 #}
+            {% for num in jobs.paginator.page_range %}
+                {% if num == current_page %}
+                    <li class="item active" style="display: inline"><a href="/myApp/home/page={{ num }}">{{ num }}</a></li>
+                {% else %}
+                    <li class="item" style="display: inline"><a href="page={{ num }}">{{ num }}</a></li>
+                {% endif %}
+            {% endfor %}
+
+            {# 下一页链接 #}
+            {% if jobs.has_next %}   {# 如果有下一页，则正常显示下一页链接 #}
+            <li class="next" style="display: inline"><a href="/myApp/home/page={{ jobs.next_page_number }}">下一页</a></li>
+
+            {% endif %}
+
+        </ul>
+
+
+    </div>
+</div>
+
+	</div>
+</div>
+    </div>
+</div>
+
+
+	<link rel="stylesheet" href="/static/css/jquery-jvectormap-1.2.2.css">
+	<link rel="stylesheet" href="/static/css/rickshaw.min.css">
+
+	<!-- Bottom Scripts -->
+	<script src="/static/js/main-gsap.js"></script>
+	<script src="/static/js/jquery-ui-1.10.3.minimal.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>
+	<script src="/static/js/joinable.js"></script>
+	<script src="/static/js/resizeable.js"></script>
+	<script src="/static/js/neon-api.js"></script>
+	<script src="/static/js/jquery-jvectormap-1.2.2.min.js"></script>
+	<script src="/static/js/jquery-jvectormap-europe-merc-en.js"></script>
+	<script src="/static/js/jquery-jvectormap-world-mill-en.js"></script>
+	<script src="/static/js/jquery.sparkline.min.js"></script>
+	<script src="/static/js/d3.v3.js"></script>
+	<script src="/static/js/rickshaw.min.js"></script>
+	<script src="/static/js/neon-chat.js"></script>
+	<script src="/static/js/neon-custom.js"></script>
+	<script src="/static/js/neon-demo.js"></script>
+    <script src="/static/js/echarts.js"></script>
+    <script>
+
+
+        var chartDom = document.getElementById('main');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+          tooltip: {
+            trigger: 'item'
+          },
+          legend: {
+            top: '5%',
+            left: 'center'
+          },
+          series: [
+            {
+              name: '用户数量',
+              type: 'pie',
+              radius: ['40%', '70%'],
+              avoidLabelOverlap: false,
+              label: {
+                show: false,
+                position: 'center'
+              },
+              emphasis: {
+                label: {
+                  show: true,
+                  fontSize: '18',
+                  fontWeight: 'bold'
+                }
+              },
+              labelLine: {
+                show: false
+              },
+              data: {{ userCreateDate | safe }}
+            }
+          ]
+        };
+
+        option && myChart.setOption(option);
+
+    </script>
+    <script>
+
+
+        var chartDom = document.getElementById('mainTwo');
+        var myChart = echarts.init(chartDom);
+        var option;
+
+        option = {
+          xAxis: {
+            type: 'category',
+            data: ['java', 'python', 'web前端', '后端', 'c++']
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [
+            {
+              data: [20,87,112,90, 31],
+              type: 'bar',
+              showBackground: true,
+              backgroundStyle: {
+                color: 'rgba(180, 180, 180, 0.2)'
+              }
+            }
+          ]
+        };
+
+        option && myChart.setOption(option);
+    </script>
+
+</body>
+</html>
